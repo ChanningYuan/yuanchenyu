@@ -146,15 +146,26 @@ hideSummary: false
 
 ---
 
-## 部署
+## 工作流程（重要）
 
-推送到 `master` 分支后，GitHub Actions 自动构建并部署到 GitHub Pages。
+**每次完成修改后，标准流程如下：**
+
+1. 在当前 feature 分支完成所有改动并 commit
+2. push 到远程 feature 分支
+3. 向用户汇报改动内容摘要（改了什么、在哪里）
+4. **询问用户是否确认合并到 master**
+5. 用户确认后，执行合并到 master：
 
 ```bash
-git add .
-git commit -m "feat: 新增文章《xxx》"
+git checkout master
+git merge <feature-branch>
 git push origin master
+git checkout <feature-branch>
 ```
+
+合并到 master 后，GitHub Actions 自动构建并部署，约 1 分钟后 yuanchenyu.com 生效。
+
+**不要在未经用户确认的情况下直接 push 到 master。**
 
 ---
 
