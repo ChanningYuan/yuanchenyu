@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>产品使用技巧 on 原晨瑜</title>
+    <link>https://yuanchenyu.com/tags/%E4%BA%A7%E5%93%81%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</link>
+    <description>Recent content in 产品使用技巧 on 原晨瑜</description>
+    <generator>Hugo -- 0.156.0</generator>
+    <language>zh</language>
+    <lastBuildDate>Mon, 29 Apr 2024 14:31:00 +0800</lastBuildDate>
+    <atom:link href="https://yuanchenyu.com/tags/%E4%BA%A7%E5%93%81%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>实践｜飞书多维表格公式计算每周净工作日（包括调休&amp;节假日处理）</title>
+      <link>https://yuanchenyu.com/posts/zhihu-pm-thinking/</link>
+      <pubDate>Mon, 29 Apr 2024 14:31:00 +0800</pubDate>
+      <guid>https://yuanchenyu.com/posts/zhihu-pm-thinking/</guid>
+      <description>在飞书多维表格中，通过简单的公式计算和辅助表，快速得到每周的净工作日（包括调休和节假日的处理），可用于精确的排班管理、个人时间管理。</description>
+    </item>
+  </channel>
+</rss>
