@@ -6,7 +6,7 @@
     <description>Recent content in Posts on 原晨瑜</description>
     <generator>Hugo -- 0.156.0</generator>
     <language>zh</language>
-    <lastBuildDate>Mon, 29 Apr 2024 14:31:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 25 Feb 2026 10:00:00 +0800</lastBuildDate>
     <atom:link href="https://yuanchenyu.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PaperMod Features Demo</title>
@@ -65,6 +65,13 @@
 &lt;/ol&gt;
 &lt;h3 id=&#34;lorem-ipsum&#34;&gt;Lorem Ipsum&lt;/h3&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Human 3.0：一套把人生当RPG游戏的个人成长底层逻辑</title>
+      <link>https://yuanchenyu.com/posts/human-3-0/</link>
+      <pubDate>Wed, 25 Feb 2026 10:00:00 +0800</pubDate>
+      <guid>https://yuanchenyu.com/posts/human-3-0/</guid>
+      <description>这篇文章为你提供了一套名为 Human 3.0 的个人成长底层逻辑——把人生当成一场硬核RPG游戏，帮你打破生活瓶颈，从NPC进化为掌控人生的高玩。</description>
     </item>
     <item>
       <title>实践｜飞书多维表格公式计算每周净工作日（包括调休&amp;节假日处理）</title>
