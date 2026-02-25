@@ -1,0 +1,129 @@
+baseURL: "https://yuanchenyu.com"
+title: "原晨瑜"
+defaultContentLanguage: zh
+pagination:
+  pagerSize: 10
+theme: []
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  env: production
+  title: "原晨瑜"
+  description: "产品经理视角的思考与记录，聚焦产品思维、行业洞察与职场成长。"
+  keywords: [产品经理, 产品思考, 行业分析, 职场, PM]
+  author: "原晨瑜"
+  defaultTheme: auto # dark, light, auto
+  disableThemeToggle: false
+
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: true
+  tocopen: false
+
+  label:
+    text: "原晨瑜"
+    iconHeight: 35
+
+  # Profile Mode Configuration
+  profileMode:
+    enabled: true
+    title: "原晨瑜"
+    subtitle: "产品经理，记录产品思考与成长感悟。"
+    imageWidth: 120
+    imageHeight: 120
+    imageTitle: "原晨瑜"
+    buttons:
+      - name: 文章
+        url: posts
+      - name: 关于
+        url: about
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/ChanningYuan"
+    # 其他社交链接按需取消注释并填入
+    # - name: twitter
+    #   url: "https://twitter.com/yourhandle"
+    # - name: linkedin
+    #   url: "https://linkedin.com/in/yourprofile"
+    # - name: email
+    #   url: "mailto:your@email.com"
+
+  # Search Configuration
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+
+menu:
+  main:
+    - identifier: home
+      name: 首页
+      url: /
+      weight: 10
+    - identifier: archives
+      name: 归档
+      url: /archives/
+      weight: 20
+    - identifier: categories
+      name: 分类
+      url: /categories/
+      weight: 30
+    - identifier: tags
+      name: 标签
+      url: /tags/
+      weight: 40
+    - identifier: search
+      name: 搜索
+      url: /search/
+      weight: 50
+    - identifier: about
+      name: 关于
+      url: /about/
+      weight: 60
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+    anchorLineNos: true
+    codeFences: true
+    guessSyntax: true
+    lineNos: true
+    style: monokai
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+taxonomies:
+  category: categories
+  tag: tags
+  series: series

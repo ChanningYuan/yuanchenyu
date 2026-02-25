@@ -1,0 +1,23 @@
+{
+  "name": "hugo-papermod",
+  "version": "1.0.0",
+  "description": "<h1 align=center>Hugo PaperMod | <a href=\"https://adityatelange.github.io/hugo-PaperMod/\" rel=\"nofollow\">Demo</a></h1>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adityatelange/hugo-PaperMod.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adityatelange/hugo-PaperMod/issues"
+  },
+  "homepage": "https://github.com/adityatelange/hugo-PaperMod#readme",
+  "devDependencies": {
+    "hugo-bin": "^0.149.2"
+  }
+}

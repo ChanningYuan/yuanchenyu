@@ -69,6 +69,9 @@
   <header class="entry-header">
     <h2 class="entry-hint-parent">
       {{- .Title }}
+      {{- if .Params.externalUrl }}
+      <span class="entry-hint" title="外部链接">↗</span>
+      {{- end }}
       {{- if .Draft }}
       <span class="entry-hint" title="Draft">
         <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
@@ -89,7 +92,11 @@
     {{- partial "post_meta.html" . -}}
   </footer>
   {{- end }}
+  {{- if .Params.externalUrl }}
+  <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Params.externalUrl }}" target="_blank" rel="noopener noreferrer"></a>
+  {{- else }}
   <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+  {{- end }}
 </article>
 {{- end }}
 
