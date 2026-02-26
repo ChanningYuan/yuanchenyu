@@ -14,4 +14,7 @@ summary: "关于原晨瑜"
 - **职场经验**：PM 成长路上的实践与感悟
 - **读书笔记**：值得记录的书和观点
 
-欢迎通过以下方式找到我（链接待补充）。
+欢迎通过以下方式联系我：
+
+- **邮件**：[yuanchenyu01@gmail.com](mailto:yuanchenyu01@gmail.com)
+- **GitHub**：[github.com/ChanningYuan](https://github.com/ChanningYuan)
