@@ -1,0 +1,175 @@
+# 网站优化方案
+
+## 一、现状分析
+
+### 1.1 导航结构（当前 6 项）
+
+```
+首页 / 归档 / 分类 / 标签 / 搜索 / 关于
+```
+
+**问题**：
+- 文章目前仅 3 篇，6 个导航项明显偏多，显得臃肿
+- 进入"分类"或"标签"页内容极少，体验空旷
+- 分类、标签、搜索、归档分散在四个独立入口，内容发现路径碎片化
+- 搜索作为顶级导航项略显突兀，主流博客通常做成图标入口
+
+### 1.2 归档页（/archives/）
+
+**当前实现**：纯时间轴，按年份 → 月份分组，仅展示文章列表
+
+**问题**：
+- 只有时间维度，没有分类/标签维度，不是完整的内容发现入口
+- 条目无 hover 反馈，交互反馈缺失
+- `.archive-month-header` 固定 `width: 200px`，在移动端会挤压文章标题区域
+- 月份间分割线 + 200px 列在文章少时显得结构过重
+
+### 1.3 分类/标签页（/categories/、/tags/）
+
+**当前实现**：`terms.html` 渲染，badge 样式展示所有分类/标签
+
+**问题**：
+- `.terms-tags a` 仅有 `:active` 状态（scale 缩小），缺少 `:hover` 状态，PC 端无反馈
+- 两个页面各自独立，无法在一处同时浏览
+
+### 1.4 搜索页（/search/）
+
+**当前实现**：独立页面，Fuse.js 客户端搜索，功能正常
+
+**问题**：
+- 占用顶级导航位置，但多数用户不是主动搜索习惯
+- 可改为右上角图标入口，释放导航空间
+
+---
+
+## 二、优化方案
+
+### 2.1 导航精简（config.yml）
+
+**目标**：6 项 → 4 项
+
+```
+当前：首页 / 归档 / 分类 / 标签 / 搜索 / 关于
+优化后：首页 / 归档 / 搜索[图标] / 关于
+```
+
+**具体操作**：
+- 删除 `categories`（分类）菜单项
+- 删除 `tags`（标签）菜单项
+- `search`（搜索）改为右上角搜索图标方式：在 PaperMod 中，
+  于 menu 项中加 `params: { type: "icon", icon: "search" }` 即可渲染图标；
+  若主题版本不支持，则在 header.html 中手动加搜索图标链接
+
+  > 注：`/categories/` 和 `/tags/` 页面本身保留（各分类/标签详情页仍需要），
+  > 仅从顶部导航移除，不删除 content 文件
+
+---
+
+### 2.2 归档页扩展为内容发现中心（archives.html）
+
+在现有时间轴上方，新增分类区块 + 标签区块：
+
+```
+归档页布局（从上到下）
+├── 页面标题（"归档"）
+├── ── 分类 ──────────────────── ← 新增
+│      产品思考(2)  AI工具体验(1)
+├── ── 标签 ──────────────────── ← 新增
+│      Claude  AI编程  产品经理  ...
+└── ── 文章时间轴 ────────────── ← 保持现有
+       2026
+       └── February (2)
+           └── 文章标题
+```
+
+**模板改动（archives.html）**：
+- 时间轴 `{{- range $pages.GroupByPublishDate ...}}` 之前，插入两个 section
+- 分类区块：使用 `site.Taxonomies.categories` 遍历所有分类，输出 badge 链接
+- 标签区块：使用 `site.Taxonomies.tags` 遍历所有标签，输出 badge 链接
+- 两个区块各用 `<div class="archive-terms-section">` 包裹，共用 terms.css 的 `.terms-tags` 样式
+
+---
+
+### 2.3 归档页样式优化（archive.css）
+
+**改动 1：月份列宽度适配**
+```css
+/* 当前 */
+.archive-month-header { width: 200px; }
+
+/* 优化后 */
+.archive-month-header { min-width: 100px; width: 140px; }
+```
+
+**改动 2：条目 hover 反馈**
+```css
+/* 新增 */
+.archive-entry:hover {
+    background: var(--code-bg);
+    border-radius: var(--radius);
+    padding-left: 12px;  /* 轻微左移动效 */
+    transition: padding 0.15s ease, background 0.15s ease;
+}
+```
+
+**改动 3：新增区块标题样式**（分类/标签区块的小标题）
+```css
+.archive-terms-section {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--border);
+}
+
+.archive-terms-label {
+    font-size: 14px;
+    color: var(--secondary);
+    margin-bottom: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+```
+
+---
+
+### 2.4 标签/分类 hover 修复（terms.css）
+
+当前仅有 `:active`，PC 端鼠标悬停无反馈：
+
+```css
+/* 新增 */
+.terms-tags a:hover {
+    background: var(--secondary);
+    color: var(--theme);
+}
+```
+
+---
+
+## 三、文件改动清单
+
+| 文件 | 改动类型 | 具体内容 |
+|------|---------|---------|
+| `config.yml` | 修改 | 删除分类/标签导航项；搜索改图标入口 |
+| `layouts/_default/archives.html` | 修改 | 时间轴前增加分类+标签区块 |
+| `assets/css/common/archive.css` | 修改 | 月份列宽、条目hover、新增区块样式 |
+| `assets/css/common/terms.css` | 修改 | 补充 :hover 状态 |
+
+> 以下文件**不改动**：
+> - `content/categories/_index.md`、`content/tags/_index.md`（保留页面，仅从导航移除）
+> - `content/search.md`（搜索页面本身保留）
+> - `assets/js/fastsearch.js`（搜索功能不变）
+> - `layouts/_default/terms.html`（模板不变，复用进归档页）
+> - 所有文章内容
+
+---
+
+## 四、效果预期
+
+| 指标 | 优化前 | 优化后 |
+|------|-------|-------|
+| 导航项数量 | 6 项 | 4 项 |
+| 内容发现路径 | 分散在 4 个入口 | 集中在归档页 |
+| 归档页维度 | 仅时间轴 | 分类 + 标签 + 时间轴 |
+| PC hover 反馈 | 条目无、标签仅active | 条目+标签均有hover |
+| 移动端月份列 | 固定200px（偏宽） | 自适应140px |
