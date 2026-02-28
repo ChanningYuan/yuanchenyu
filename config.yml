@@ -48,7 +48,7 @@ params:
     enabled: true
     title: "原晨瑜"
     subtitle: "产品经理，记录产品思考与成长感悟。"
-    imageUrl: "avatar.jpg"
+    imageUrl: "images/avatar.png"
     imageWidth: 120
     imageHeight: 120
     imageTitle: "原晨瑜"
