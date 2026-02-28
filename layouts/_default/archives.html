@@ -33,6 +33,40 @@
 {{- $pages = site.RegularPages }}
 {{- end }}
 
+{{- /* 分类区块 */ -}}
+{{- with site.Taxonomies.categories }}
+<div class="archive-terms-section">
+  <p class="archive-terms-label">分类</p>
+  <ul class="terms-tags">
+    {{- range $name, $pages := . }}
+    {{- with site.GetPage (printf "/categories/%s" $name) }}
+    <li>
+      <a href="{{ .Permalink }}">{{ .Name }} <sup><strong><sup>{{ len $pages }}</sup></strong></sup></a>
+    </li>
+    {{- end }}
+    {{- end }}
+  </ul>
+</div>
+{{- end }}
+
+{{- /* 标签区块 */ -}}
+{{- with site.Taxonomies.tags }}
+<div class="archive-terms-section">
+  <p class="archive-terms-label">标签</p>
+  <ul class="terms-tags">
+    {{- range $name, $pages := . }}
+    {{- with site.GetPage (printf "/tags/%s" $name) }}
+    <li>
+      <a href="{{ .Permalink }}">{{ .Name }} <sup><strong><sup>{{ len $pages }}</sup></strong></sup></a>
+    </li>
+    {{- end }}
+    {{- end }}
+  </ul>
+</div>
+{{- end }}
+
+<p class="archive-terms-label">文章时间轴</p>
+
 {{- range $pages.GroupByPublishDate "2006" }}
 {{- if ne .Key "0001" }}
 <div class="archive-year">

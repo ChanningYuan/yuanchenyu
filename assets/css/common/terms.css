@@ -12,6 +12,11 @@
     transition: transform 0.1s;
 }
 
+.terms-tags a:hover {
+    background: var(--secondary);
+    color: var(--theme);
+}
+
 .terms-tags a:active {
     background: var(--tertiary);
     transform: scale(0.96);

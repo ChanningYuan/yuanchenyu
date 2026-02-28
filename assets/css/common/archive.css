@@ -19,7 +19,8 @@
 
 .archive-month-header {
     margin: 25px 0;
-    width: 200px;
+    min-width: 100px;
+    width: 140px;
 }
 
 .archive-month:not(:last-of-type) {
@@ -30,6 +31,13 @@
     position: relative;
     padding: 5px;
     margin: 10px 0;
+    border-radius: var(--radius);
+    transition: padding 0.15s ease, background 0.15s ease;
+}
+
+.archive-entry:hover {
+    background: var(--code-bg);
+    padding-left: 12px;
 }
 
 .archive-entry-title {
@@ -41,4 +49,19 @@
 .archive-meta {
     color: var(--secondary);
     font-size: 14px;
+}
+
+.archive-terms-section {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--border);
+}
+
+.archive-terms-label {
+    font-size: 13px;
+    color: var(--secondary);
+    margin: 0 0 10px 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
 }
