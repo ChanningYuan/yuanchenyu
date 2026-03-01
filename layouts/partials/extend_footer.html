@@ -1,3 +1,47 @@
-{{- /* Footer custom content area start */ -}}
-{{- /*     Insert any custom code web-analytics, resources, etc. here */ -}}
-{{- /* Footer custom content area end */ -}}
+{{- /* ── 文章页增强：阅读进度条 + TOC 章节高亮 + 代码语言标签 ── */}}
+{{- if and (eq .Kind "page") (ne .Layout "archives") (ne .Layout "search") }}
+<script>
+(function () {
+  /* ── 阅读进度条 ── */
+  var bar = document.createElement('div');
+  bar.id = 'reading-progress-bar';
+  document.body.prepend(bar);
+  var updateBar = function () {
+    var total = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (total > 0 ? Math.min(window.scrollY / total * 100, 100) : 0) + '%';
+  };
+  window.addEventListener('scroll', updateBar, { passive: true });
+  updateBar();
+
+  /* ── TOC 当前章节高亮 ── */
+  var tocLinks = document.querySelectorAll('.toc a');
+  var headings = document.querySelectorAll(
+    '.post-content h1[id], .post-content h2[id], .post-content h3[id], .post-content h4[id]'
+  );
+  if (tocLinks.length && headings.length && 'IntersectionObserver' in window) {
+    var currentId = '';
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) currentId = e.target.id;
+      });
+      tocLinks.forEach(function (a) {
+        a.classList.toggle('toc-active', a.getAttribute('href') === '#' + currentId);
+      });
+    }, { rootMargin: '-8% 0px -85% 0px', threshold: 0 });
+    headings.forEach(function (h) { io.observe(h); });
+  }
+
+  /* ── 代码块语言标签 ── */
+  document.querySelectorAll('.post-content .highlight').forEach(function (div) {
+    var code = div.querySelector('code[data-lang]');
+    if (!code) return;
+    var lang = code.getAttribute('data-lang');
+    if (!lang || lang === 'fallback' || lang === 'text' || lang === 'plaintext') return;
+    var label = document.createElement('span');
+    label.className = 'code-lang-label';
+    label.textContent = lang;
+    div.appendChild(label);
+  });
+})();
+</script>
+{{- end }}

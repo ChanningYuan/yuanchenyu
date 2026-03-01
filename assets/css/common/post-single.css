@@ -415,3 +415,39 @@ img.in-text {
     display: inline;
     margin: auto;
 }
+
+/* ── 阅读进度条 ── */
+#reading-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    height: 2px;
+    width: 0%;
+    background: var(--primary);
+    opacity: 0.45;
+    transition: width 0.08s linear;
+    pointer-events: none;
+}
+
+/* ── TOC 当前章节高亮 ── */
+.toc a.toc-active {
+    color: var(--primary);
+    font-weight: 600;
+    box-shadow: none;
+}
+
+/* ── 代码块语言标签 ── */
+.code-lang-label {
+    position: absolute;
+    top: 7px;
+    right: 8px;
+    font-size: 10px;
+    line-height: 1;
+    color: rgba(155, 156, 157, 0.75);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    pointer-events: none;
+    font-family: monospace;
+    user-select: none;
+}

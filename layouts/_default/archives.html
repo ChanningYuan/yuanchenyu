@@ -108,6 +108,14 @@
     }
     input.addEventListener('input',  toggle);
     input.addEventListener('search', toggle);
+
+    /* `/` 快捷键聚焦搜索框 */
+    document.addEventListener('keydown', function (e) {
+      if (e.key === '/' && document.activeElement !== input) {
+        e.preventDefault();
+        input.focus();
+      }
+    });
   })();
 </script>
 
