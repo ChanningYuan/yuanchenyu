@@ -1,67 +1,212 @@
-.archive-posts {
+/* ── 顶部区域（搜索 + 筛选），约占页面 1/5 ── */
+.articles-top {
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+/* 搜索框 */
+.articles-search {
+    margin-bottom: 14px;
+}
+
+.articles-search input {
+    padding: 6px 12px;
     width: 100%;
-    font-size: 16px;
+    color: var(--primary);
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 14px;
+    transition: border-color 0.15s ease;
+    box-sizing: border-box;
+}
+
+.articles-search input:focus {
+    outline: none;
+    border-color: var(--secondary);
+}
+
+#searchResults {
+    margin: 6px 0 0;
+    padding: 0;
+    width: 100%;
+}
+
+#searchResults li {
+    list-style: none;
+    border-radius: var(--radius);
+    padding: 8px 10px;
+    margin: 4px 0;
+    position: relative;
+    font-size: 14px;
+    font-weight: 500;
+    background: var(--code-bg);
+}
+
+#searchResults li:active {
+    transform: scale(0.98);
+}
+
+#searchResults a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    outline: none;
+}
+
+#searchResults .focus {
+    border: 1px solid var(--secondary);
+}
+
+/* 分类 / 标签筛选区 */
+.articles-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.filter-label {
+    font-size: 11px;
+    color: var(--secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.filter-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 2px 8px;
+    font-size: 12px;
+    border-radius: 100px;
+    background: var(--code-bg);
+    color: var(--primary);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    transition: background 0.15s ease, border-color 0.15s ease;
+    line-height: 1.5;
+}
+
+.filter-tag:hover {
+    background: var(--border);
+    border-color: var(--secondary);
+}
+
+.filter-tag sup {
+    font-size: 10px;
+    color: var(--secondary);
+}
+
+/* ── 时间轴 ── */
+.articles-timeline {
+    font-size: 15px;
 }
 
 .archive-year {
-    margin-top: 40px;
+    margin-top: 24px;
 }
 
 .archive-year:not(:last-of-type) {
-    border-bottom: 2px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin-bottom: 4px;
+}
+
+.archive-year-header {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 8px;
+    color: var(--primary);
+}
+
+.archive-year-header a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.archive-year-header a:hover {
+    color: var(--secondary);
+}
+
+.archive-count {
+    font-size: 11px;
+    color: var(--secondary);
+    font-weight: 400;
 }
 
 .archive-month {
     display: flex;
     align-items: flex-start;
-    padding: 10px 0;
-}
-
-.archive-month-header {
-    margin: 25px 0;
-    min-width: 100px;
-    width: 140px;
+    padding: 4px 0;
 }
 
 .archive-month:not(:last-of-type) {
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px dashed var(--border);
+}
+
+.archive-month-header {
+    flex-shrink: 0;
+    width: 80px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--secondary);
+    padding-top: 10px;
+    letter-spacing: 0.02em;
+}
+
+.archive-posts {
+    flex: 1;
+    min-width: 0;
 }
 
 .archive-entry {
     position: relative;
-    padding: 5px;
-    margin: 10px 0;
+    padding: 5px 6px;
+    margin: 2px 0;
     border-radius: var(--radius);
-    transition: padding 0.15s ease, background 0.15s ease;
+    transition: background 0.15s ease, padding-left 0.15s ease;
 }
 
 .archive-entry:hover {
     background: var(--code-bg);
-    padding-left: 12px;
+    padding-left: 10px;
 }
 
 .archive-entry-title {
-    margin: 5px 0;
+    margin: 0;
+    font-size: 14px;
     font-weight: 400;
+    line-height: 1.5;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
-.archive-count,
 .archive-meta {
     color: var(--secondary);
-    font-size: 14px;
-}
-
-.archive-terms-section {
-    margin-bottom: 24px;
-    padding-bottom: 24px;
-    border-bottom: 2px solid var(--border);
-}
-
-.archive-terms-label {
-    font-size: 13px;
-    color: var(--secondary);
-    margin: 0 0 10px 0;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
+    font-size: 12px;
+    margin-top: 1px;
 }

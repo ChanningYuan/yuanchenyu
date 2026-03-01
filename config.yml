@@ -81,13 +81,9 @@ menu:
       url: /
       weight: 10
     - identifier: archives
-      name: 归档
+      name: 文章
       url: /archives/
       weight: 20
-    - identifier: search
-      name: 搜索
-      url: /search/
-      weight: 30
     - identifier: about
       name: 关于
       url: /about/

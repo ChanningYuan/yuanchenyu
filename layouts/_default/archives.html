@@ -1,124 +1,114 @@
 {{- define "main" }}
 
-<header class="page-header">
-  <h1>
-    {{ .Title }}
-    {{- if (.Param "ShowRssButtonInSectionTermList") }}
-    {{- $rss := (.OutputFormats.Get "rss") }}
-    {{- if (eq .Kind `page`) }}
-    {{- $rss = (.Parent.OutputFormats.Get "rss") }}
+{{- /* ── 顶部紧凑区：搜索 + 分类/标签 ── */ -}}
+<div class="articles-top">
+
+  <div class="articles-search" id="searchbox">
+    <input id="searchInput"
+           placeholder="搜索文章…"
+           aria-label="搜索"
+           type="search"
+           autocomplete="off"
+           maxlength="64">
+    <ul id="searchResults" aria-label="搜索结果"></ul>
+  </div>
+
+  {{- with site.Taxonomies }}
+  <div class="articles-filters">
+    {{- with .categories }}
+    <div class="filter-group">
+      <span class="filter-label">分类</span>
+      <div class="filter-tags">
+        {{- range $name, $pages := . }}
+        {{- with site.GetPage (printf "/categories/%s" $name) }}
+        <a class="filter-tag" href="{{ .Permalink }}">{{ .Name }}<sup>{{ len $pages }}</sup></a>
+        {{- end }}
+        {{- end }}
+      </div>
+    </div>
     {{- end }}
-    {{- with $rss }}
-    <a href="{{ .RelPermalink }}" title="RSS" aria-label="RSS">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round" height="23">
-        <path d="M4 11a9 9 0 0 1 9 9" />
-        <path d="M4 4a16 16 0 0 1 16 16" />
-        <circle cx="5" cy="19" r="1" />
-      </svg>
-    </a>
+    {{- with .tags }}
+    <div class="filter-group">
+      <span class="filter-label">标签</span>
+      <div class="filter-tags">
+        {{- range $name, $pages := . }}
+        {{- with site.GetPage (printf "/tags/%s" $name) }}
+        <a class="filter-tag" href="{{ .Permalink }}">{{ .Name }}<sup>{{ len $pages }}</sup></a>
+        {{- end }}
+        {{- end }}
+      </div>
+    </div>
     {{- end }}
-    {{- end }}
-  </h1>
-  {{- if .Description }}
-  <div class="post-description">
-    {{ .Description }}
   </div>
   {{- end }}
-</header>
 
+</div>{{- /* end .articles-top */ -}}
+
+{{- /* ── 时间轴 ── */ -}}
 {{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
-
 {{- if site.Params.ShowAllPagesInArchive }}
 {{- $pages = site.RegularPages }}
 {{- end }}
 
-{{- /* 分类区块 */ -}}
-{{- with site.Taxonomies.categories }}
-<div class="archive-terms-section">
-  <p class="archive-terms-label">分类</p>
-  <ul class="terms-tags">
-    {{- range $name, $pages := . }}
-    {{- with site.GetPage (printf "/categories/%s" $name) }}
-    <li>
-      <a href="{{ .Permalink }}">{{ .Name }} <sup><strong><sup>{{ len $pages }}</sup></strong></sup></a>
-    </li>
-    {{- end }}
-    {{- end }}
-  </ul>
-</div>
-{{- end }}
-
-{{- /* 标签区块 */ -}}
-{{- with site.Taxonomies.tags }}
-<div class="archive-terms-section">
-  <p class="archive-terms-label">标签</p>
-  <ul class="terms-tags">
-    {{- range $name, $pages := . }}
-    {{- with site.GetPage (printf "/tags/%s" $name) }}
-    <li>
-      <a href="{{ .Permalink }}">{{ .Name }} <sup><strong><sup>{{ len $pages }}</sup></strong></sup></a>
-    </li>
-    {{- end }}
-    {{- end }}
-  </ul>
-</div>
-{{- end }}
-
-<p class="archive-terms-label">文章时间轴</p>
-
-{{- range $pages.GroupByPublishDate "2006" }}
-{{- if ne .Key "0001" }}
-<div class="archive-year">
-  {{- $year := replace .Key "0001" "" }}
-  <h2 class="archive-year-header" id="{{ $year }}">
-    <a class="archive-header-link" href="#{{ $year }}">
-      {{- $year -}}
-    </a>
-    <sup class="archive-count">&nbsp;{{ len .Pages }}</sup>
-  </h2>
-  {{- range .Pages.GroupByDate "January" }}
-  <div class="archive-month">
-    <h3 class="archive-month-header" id="{{ $year }}-{{ .Key }}">
-      <a class="archive-header-link" href="#{{ $year }}-{{ .Key }}">
-        {{- .Key -}}
-      </a>
-      <sup class="archive-count">&nbsp;{{ len .Pages }}</sup>
-    </h3>
-    <div class="archive-posts">
-      {{- range .Pages }}
-      {{- if eq .Kind "page" }}
-      <div class="archive-entry">
-        <h3 class="archive-entry-title entry-hint-parent">
-          {{- .Title | markdownify }}
+<div class="articles-timeline" id="archiveTimeline">
+  {{- range $pages.GroupByPublishDate "2006" }}
+  {{- if ne .Key "0001" }}
+  <div class="archive-year">
+    {{- $year := replace .Key "0001" "" }}
+    <h2 class="archive-year-header" id="{{ $year }}">
+      <a class="archive-header-link" href="#{{ $year }}">{{- $year -}}</a>
+      <span class="archive-count">{{ len .Pages }}</span>
+    </h2>
+    {{- range .Pages.GroupByDate "January" }}
+    <div class="archive-month">
+      <span class="archive-month-header">{{- .Key -}}</span>
+      <div class="archive-posts">
+        {{- range .Pages }}
+        {{- if eq .Kind "page" }}
+        <div class="archive-entry">
+          <p class="archive-entry-title entry-hint-parent">
+            {{- .Title | markdownify }}
+            {{- if .Params.externalUrl }}
+            <span class="entry-hint" title="外部链接">↗</span>
+            {{- end }}
+            {{- if .Draft }}
+            <span class="entry-hint" title="草稿">
+              <svg xmlns="http://www.w3.org/2000/svg" height="13" viewBox="0 -960 960 960" fill="currentColor">
+                <path d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z"/>
+              </svg>
+            </span>
+            {{- end }}
+          </p>
+          <div class="archive-meta">
+            {{- partial "post_meta.html" . -}}
+          </div>
           {{- if .Params.externalUrl }}
-          <span class="entry-hint" title="外部链接">↗</span>
+          <a class="entry-link" aria-label="{{ .Title | plainify }}" href="{{ .Params.externalUrl }}" target="_blank" rel="noopener noreferrer"></a>
+          {{- else }}
+          <a class="entry-link" aria-label="{{ .Title | plainify }}" href="{{ .Permalink }}"></a>
           {{- end }}
-          {{- if .Draft }}
-          <span class="entry-hint" title="Draft">
-            <svg xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" fill="currentColor">
-              <path
-                d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-            </svg>
-          </span>
-          {{- end }}
-        </h3>
-        <div class="archive-meta">
-          {{- partial "post_meta.html" . -}}
         </div>
-        {{- if .Params.externalUrl }}
-        <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Params.externalUrl }}" target="_blank" rel="noopener noreferrer"></a>
-        {{- else }}
-        <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+        {{- end }}
         {{- end }}
       </div>
-      {{- end }}
-      {{- end }}
     </div>
+    {{- end }}
   </div>
   {{- end }}
+  {{- end }}
 </div>
-{{- end }}
-{{- end }}
+
+<script>
+  (function () {
+    var timeline = document.getElementById('archiveTimeline');
+    var input    = document.getElementById('searchInput');
+    if (!input || !timeline) return;
+    function toggle() {
+      timeline.style.display = input.value.trim() ? 'none' : '';
+    }
+    input.addEventListener('input',  toggle);
+    input.addEventListener('search', toggle);
+  })();
+</script>
 
 {{- end }}{{/* end main */}}
