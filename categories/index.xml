@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>分类 on 原晨瑜</title>
-    <link>https://yuanchenyu.com/categories/</link>
+    <link>https://yuanchenyu.me/categories/</link>
     <description>Recent content in 分类 on 原晨瑜</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>zh</language>
     <lastBuildDate>Wed, 25 Feb 2026 12:00:00 +0800</lastBuildDate>
-    <atom:link href="https://yuanchenyu.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://yuanchenyu.me/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI工具体验</title>
-      <link>https://yuanchenyu.com/categories/ai%E5%B7%A5%E5%85%B7%E4%BD%93%E9%AA%8C/</link>
+      <link>https://yuanchenyu.me/categories/ai%E5%B7%A5%E5%85%B7%E4%BD%93%E9%AA%8C/</link>
       <pubDate>Wed, 25 Feb 2026 12:00:00 +0800</pubDate>
-      <guid>https://yuanchenyu.com/categories/ai%E5%B7%A5%E5%85%B7%E4%BD%93%E9%AA%8C/</guid>
+      <guid>https://yuanchenyu.me/categories/ai%E5%B7%A5%E5%85%B7%E4%BD%93%E9%AA%8C/</guid>
       <description></description>
     </item>
     <item>
       <title>多维表格</title>
-      <link>https://yuanchenyu.com/categories/%E5%A4%9A%E7%BB%B4%E8%A1%A8%E6%A0%BC/</link>
+      <link>https://yuanchenyu.me/categories/%E5%A4%9A%E7%BB%B4%E8%A1%A8%E6%A0%BC/</link>
       <pubDate>Mon, 29 Apr 2024 14:31:00 +0800</pubDate>
-      <guid>https://yuanchenyu.com/categories/%E5%A4%9A%E7%BB%B4%E8%A1%A8%E6%A0%BC/</guid>
+      <guid>https://yuanchenyu.me/categories/%E5%A4%9A%E7%BB%B4%E8%A1%A8%E6%A0%BC/</guid>
       <description></description>
     </item>
     <item>
       <title>时间管理</title>
-      <link>https://yuanchenyu.com/categories/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/</link>
+      <link>https://yuanchenyu.me/categories/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/</link>
       <pubDate>Mon, 29 Apr 2024 14:31:00 +0800</pubDate>
-      <guid>https://yuanchenyu.com/categories/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/</guid>
+      <guid>https://yuanchenyu.me/categories/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/</guid>
       <description></description>
     </item>
     <item>
       <title>产品思考</title>
-      <link>https://yuanchenyu.com/categories/%E4%BA%A7%E5%93%81%E6%80%9D%E8%80%83/</link>
+      <link>https://yuanchenyu.me/categories/%E4%BA%A7%E5%93%81%E6%80%9D%E8%80%83/</link>
       <pubDate>Tue, 23 Jan 2024 00:00:00 +0800</pubDate>
-      <guid>https://yuanchenyu.com/categories/%E4%BA%A7%E5%93%81%E6%80%9D%E8%80%83/</guid>
+      <guid>https://yuanchenyu.me/categories/%E4%BA%A7%E5%93%81%E6%80%9D%E8%80%83/</guid>
       <description></description>
     </item>
   </channel>

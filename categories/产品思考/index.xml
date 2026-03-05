@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>产品思考 on 原晨瑜</title>
-    <link>https://yuanchenyu.com/categories/%E4%BA%A7%E5%93%81%E6%80%9D%E8%80%83/</link>
+    <link>https://yuanchenyu.me/categories/%E4%BA%A7%E5%93%81%E6%80%9D%E8%80%83/</link>
     <description>Recent content in 产品思考 on 原晨瑜</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>zh</language>
     <lastBuildDate>Tue, 23 Jan 2024 00:00:00 +0800</lastBuildDate>
-    <atom:link href="https://yuanchenyu.com/categories/%E4%BA%A7%E5%93%81%E6%80%9D%E8%80%83/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://yuanchenyu.me/categories/%E4%BA%A7%E5%93%81%E6%80%9D%E8%80%83/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>什么是心理账户？</title>
-      <link>https://yuanchenyu.com/posts/zhihu-mental-accounting/</link>
+      <link>https://yuanchenyu.me/posts/zhihu-mental-accounting/</link>
       <pubDate>Tue, 23 Jan 2024 00:00:00 +0800</pubDate>
-      <guid>https://yuanchenyu.com/posts/zhihu-mental-accounting/</guid>
+      <guid>https://yuanchenyu.me/posts/zhihu-mental-accounting/</guid>
       <description>举个简单的例子：路上捡到100块钱，你会很乐意用它买之前舍不得买的东西；但如果是你辛苦兼职挣来的100块，你却舍不得花。同样是100块，为什么感受完全不同？这就是心理账户。</description>
     </item>
   </channel>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>移动开发 on 原晨瑜</title>
-    <link>https://yuanchenyu.com/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/</link>
+    <link>https://yuanchenyu.me/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/</link>
     <description>Recent content in 移动开发 on 原晨瑜</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>zh</language>
     <lastBuildDate>Wed, 25 Feb 2026 12:00:00 +0800</lastBuildDate>
-    <atom:link href="https://yuanchenyu.com/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://yuanchenyu.me/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>用手机写代码并实时上线：Claude Mobile Code 体验</title>
-      <link>https://yuanchenyu.com/posts/claude-mobile-coding/</link>
+      <link>https://yuanchenyu.me/posts/claude-mobile-coding/</link>
       <pubDate>Wed, 25 Feb 2026 12:00:00 +0800</pubDate>
-      <guid>https://yuanchenyu.com/posts/claude-mobile-coding/</guid>
+      <guid>https://yuanchenyu.me/posts/claude-mobile-coding/</guid>
       <description>Claude 手机端 App 更新了 Code 功能，可以连接 GitHub 仓库，通过对话写代码并实时推送到线上。本文分享了这一全新工作流的真实体验。</description>
     </item>
   </channel>

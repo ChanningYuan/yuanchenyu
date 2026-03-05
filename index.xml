@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>原晨瑜</title>
-    <link>https://yuanchenyu.com/</link>
+    <link>https://yuanchenyu.me/</link>
     <description>Recent content on 原晨瑜</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>zh</language>
     <lastBuildDate>Wed, 25 Feb 2026 12:00:00 +0800</lastBuildDate>
-    <atom:link href="https://yuanchenyu.com/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://yuanchenyu.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>用手机写代码并实时上线：Claude Mobile Code 体验</title>
-      <link>https://yuanchenyu.com/posts/claude-mobile-coding/</link>
+      <link>https://yuanchenyu.me/posts/claude-mobile-coding/</link>
       <pubDate>Wed, 25 Feb 2026 12:00:00 +0800</pubDate>
-      <guid>https://yuanchenyu.com/posts/claude-mobile-coding/</guid>
+      <guid>https://yuanchenyu.me/posts/claude-mobile-coding/</guid>
       <description>Claude 手机端 App 更新了 Code 功能，可以连接 GitHub 仓库，通过对话写代码并实时推送到线上。本文分享了这一全新工作流的真实体验。</description>
     </item>
     <item>
       <title>实践｜飞书多维表格公式计算每周净工作日（包括调休&amp;节假日处理）</title>
-      <link>https://yuanchenyu.com/posts/zhihu-pm-thinking/</link>
+      <link>https://yuanchenyu.me/posts/zhihu-pm-thinking/</link>
       <pubDate>Mon, 29 Apr 2024 14:31:00 +0800</pubDate>
-      <guid>https://yuanchenyu.com/posts/zhihu-pm-thinking/</guid>
+      <guid>https://yuanchenyu.me/posts/zhihu-pm-thinking/</guid>
       <description>在飞书多维表格中，通过简单的公式计算和辅助表，快速得到每周的净工作日（包括调休和节假日的处理），可用于精确的排班管理、个人时间管理。</description>
     </item>
     <item>
       <title>什么是心理账户？</title>
-      <link>https://yuanchenyu.com/posts/zhihu-mental-accounting/</link>
+      <link>https://yuanchenyu.me/posts/zhihu-mental-accounting/</link>
       <pubDate>Tue, 23 Jan 2024 00:00:00 +0800</pubDate>
-      <guid>https://yuanchenyu.com/posts/zhihu-mental-accounting/</guid>
+      <guid>https://yuanchenyu.me/posts/zhihu-mental-accounting/</guid>
       <description>举个简单的例子：路上捡到100块钱，你会很乐意用它买之前舍不得买的东西；但如果是你辛苦兼职挣来的100块，你却舍不得花。同样是100块，为什么感受完全不同？这就是心理账户。</description>
     </item>
     <item>
       <title>关于</title>
-      <link>https://yuanchenyu.com/about/</link>
+      <link>https://yuanchenyu.me/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://yuanchenyu.com/about/</guid>
+      <guid>https://yuanchenyu.me/about/</guid>
       <description>关于原晨瑜</description>
     </item>
   </channel>
